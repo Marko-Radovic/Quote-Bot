@@ -8,7 +8,7 @@ load_dotenv()
 
 BOT_EMAIL = os.environ.get("INSPIRATIONAL_BOT_EMAIL")
 BOT_PASSWORD = os.environ.get("INSPIRATIONAL_BOT_PASSWORD")
-# CHROME_DRIVER_PATH = "C:\Development\chromedriver.exe"
+CHROME_DRIVER_PATH = "C:\Development\chromedriver.exe"
 # driver = webdriver.Chrome(executable_path=CHROME_DRIVER_PATH)
 
 # driver.get("https://twitter.com/")
@@ -32,8 +32,8 @@ BOT_PASSWORD = os.environ.get("INSPIRATIONAL_BOT_PASSWORD")
 # login_button.click()
 # t.sleep(2)
 
-Login()
-t.sleep(1)
-Login.post_quote()
+bot = Login(CHROME_DRIVER_PATH)
+bot.login()
+bot.get_message()
 
 
