@@ -2,6 +2,8 @@ from dotenv import load_dotenv
 import os
 from selenium import webdriver
 import time as t
+from quotes import author,quote
+
 load_dotenv()
 
 BOT_EMAIL = os.environ.get("INSPIRATIONAL_BOT_EMAIL")
@@ -12,6 +14,7 @@ driver = webdriver.Chrome(executable_path=CHROME_DRIVER_PATH)
 
 class Login:
     def __init__(self):
+
         driver.get("https://twitter.com/")
         t.sleep(1)
         driver.maximize_window()
@@ -35,3 +38,7 @@ class Login:
             '//*[@id="react-root"]/div/div/div[2]/main/div/div/div[2]/form/div/div[3]/div/div/span/span')
         login_button.click()
         t.sleep(2)
+        message = driver.find_element_by_xpath(
+            '//*[@id="react-root"]/div/div/div[2]/main/div/div/div/div/div/div[2]/div/div[2]/div[1]/div/div/div/div[2]/div[1]/div/div/div/div/div/div/div/div/div/label/div[1]/div/div/div/div/div[2]/div/div/div/div')
+        message.send_keys(f"@PENTA_LOL1 {quote} - {author}")
+

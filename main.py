@@ -1,7 +1,8 @@
 from dotenv import load_dotenv
 import os
 from selenium import webdriver
-from login import Login, CHROME_DRIVER_PATH, driver
+from login import Login
+
 import time as t
 load_dotenv()
 
@@ -32,3 +33,7 @@ BOT_PASSWORD = os.environ.get("INSPIRATIONAL_BOT_PASSWORD")
 # t.sleep(2)
 
 Login()
+t.sleep(1)
+Login.post_quote()
+
+
